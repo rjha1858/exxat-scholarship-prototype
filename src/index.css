@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+
+  --color-brand-50: #fdf1f5;
+  --color-brand-100: #fce4ec;
+  --color-brand-200: #f8c1d6;
+  --color-brand-400: #ec4a86;
+  --color-brand-500: #e0175f;
+  --color-brand-600: #c30f50;
+  --color-brand-700: #9b1b4b;
+
+  --color-ink-900: #14141f;
+  --color-ink-700: #33333f;
+  --color-ink-500: #6b6b7c;
+  --color-ink-300: #9c9cab;
+
+  --color-surface: #f6f6fb;
+  --color-surface-nav: #eef0f8;
+  --color-line: #e6e6ef;
+
+  --color-lav-50: #f6eefb;
+  --color-blue-tint: #eef3fc;
+
+  --color-success-bg: #0f7b4c;
+  --color-success-100: #e3f5ec;
+  --color-success-700: #0f7b4c;
+
+  --color-warn-100: #fdf0dc;
+  --color-warn-700: #92660c;
+
+  --color-danger-100: #fdebea;
+  --color-danger-700: #c0392b;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
