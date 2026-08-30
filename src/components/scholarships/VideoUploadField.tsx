@@ -12,15 +12,14 @@ interface VideoUploadFieldProps {
   maxSizeBytes?: number
 }
 
-function YouTubeUploadHelp() {
+function VideoLinkHelp() {
   return (
     <div className="flex flex-col gap-1.5">
-      <p className="font-semibold text-ink-900">How to upload your video on YouTube</p>
+      <p className="font-semibold text-ink-900">How to share a video link</p>
       <ol className="list-decimal space-y-1 pl-4">
-        <li>Go to youtube.com and sign in (or create a free account).</li>
-        <li>Click the camera icon, then "Upload video," and select your file.</li>
-        <li>Set visibility to "Unlisted" so only people with the link can view it.</li>
-        <li>Once it's done processing, copy the video link and paste it here.</li>
+        <li>Upload your video to a streaming platform of your choice.</li>
+        <li>Make sure the sharing/visibility setting allows anyone with the link to view it.</li>
+        <li>Copy the video's link and paste it here.</li>
       </ol>
     </div>
   )
@@ -75,14 +74,14 @@ export function VideoUploadField({ id, value, onChange, accept, maxSizeBytes }: 
             <TextInput
               id={id}
               type="url"
-              placeholder="https://youtube.com/watch?v=..."
+              placeholder="Paste your video link here"
               value={value?.url ?? ''}
               onChange={(e) => handleUrlChange(e.target.value)}
             />
-            <Tooltip content={<YouTubeUploadHelp />}>
+            <Tooltip content={<VideoLinkHelp />}>
               <button
                 type="button"
-                aria-label="How to upload your video to YouTube"
+                aria-label="How to share a video link"
                 className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-400 hover:bg-surface hover:text-brand-500"
               >
                 <HelpIcon width={18} height={18} />
@@ -90,7 +89,7 @@ export function VideoUploadField({ id, value, onChange, accept, maxSizeBytes }: 
             </Tooltip>
           </div>
           <p className="text-xs text-ink-500">
-            Paste a link to your video on YouTube, Vimeo, or another streaming platform.
+            Paste a link to your video from any streaming platform of your choice.
           </p>
         </div>
       )}

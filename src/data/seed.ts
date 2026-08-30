@@ -32,7 +32,7 @@ const commonGuidelines = (essayPrompt: string) => [
   `Submit a one-page essay (500 words maximum) responding to: "${essayPrompt}"`,
   'Include one letter of recommendation from an experiential supervisor or faculty member in your program.',
   'Report your current GPA. GPA is one of the criteria used during evaluation, but there is no minimum GPA required to apply.',
-  'Include a 30-second video explaining how this award will help you with your professional goals — upload a file or share a YouTube (or other streaming) link.',
+  'Include a 30-second video explaining how this award will help you with your professional goals — upload a file or share a link from any streaming platform.',
   'Applications are reviewed by the Exxat Review Committee based on the essay, video, letter of recommendation, and GPA. Incomplete applications will not be reviewed.',
   'If selected, you will have one week to provide a GPA verification letter from your program director or department chair and a letter confirming your current enrollment — Exxat may rescind the offer if these are not provided in time.',
   'If selected, you will be asked to provide your full name, a short bio, a high-resolution photo (at least 1024×1024px, PNG or JPG), your LinkedIn handle (if you have one), and permission to use your image for the winner announcement.',
