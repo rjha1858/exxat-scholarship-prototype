@@ -18,10 +18,12 @@ const detailCtaCopy = {
   CLOSED_NO_APP: 'Applications Closed',
   NOT_STARTED: 'Apply Now',
   DRAFT: 'Continue Application',
-  SUBMITTED: 'View Application Status',
-  SELECTED: 'View Application Status',
-  NOT_SELECTED: 'View Application Status',
 } as const
+
+const showsCta = (state: string): state is keyof typeof detailCtaCopy =>
+  state === 'CLOSED_NO_APP' || state === 'NOT_STARTED' || state === 'DRAFT'
+
+const showsNudge = (state: string) => state === 'NOT_STARTED' || state === 'DRAFT'
 
 export function ScholarshipDetailPage() {
   const { scholarshipId } = useParams()
@@ -70,7 +72,7 @@ export function ScholarshipDetailPage() {
         &larr; Back to Scholarships
       </Link>
 
-      <ProfileCompletionNudge />
+      {showsNudge(state) && <ProfileCompletionNudge />}
 
       <Card className="p-8">
         <div className="flex flex-wrap items-start justify-between gap-6">
@@ -110,15 +112,19 @@ export function ScholarshipDetailPage() {
         {state === 'NOT_SELECTED' && (
           <div className="mt-6 rounded-xl border border-line bg-surface p-5">
             <p className="font-bold text-ink-900">Thank you for applying.</p>
-            <p className="mt-1 text-[15px] text-ink-700">You were not selected for this scholarship this cycle.</p>
+            <p className="mt-1 text-[15px] text-ink-700">
+              You were not selected for this scholarship this cycle. This has also been communicated to you by email.
+            </p>
           </div>
         )}
 
-        <div className="mt-6">
-          <Button onClick={handleCta} disabled={state === 'CLOSED_NO_APP'}>
-            {detailCtaCopy[state]}
-          </Button>
-        </div>
+        {showsCta(state) && (
+          <div className="mt-6">
+            <Button onClick={handleCta} disabled={state === 'CLOSED_NO_APP'}>
+              {detailCtaCopy[state]}
+            </Button>
+          </div>
+        )}
       </Card>
 
       <Card className="p-8">
